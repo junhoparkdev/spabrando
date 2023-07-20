@@ -1,0 +1,1213 @@
+@import url(./reset.css);
+@import url(./fonts.css);
+@import url(./response.css);
+
+
+#wrap {
+    width: 100%;
+    #header {
+        position: fixed;
+        z-index: 3;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 76px;
+        padding: 11px 0;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+        background: rgba(0, 0, 0, 0);
+        transition: all 0.2s;
+        &.pal-on {
+            background: rgb(0, 0, 0);
+            border: none;
+            animation: header-paral-on 0.6s ease-in-out both;
+            height: 60px;
+            padding: 4px 0;
+        }
+        &.pal-off {
+            animation: header-paral-off 0.6s ease-in-out both;
+        }
+        .container {
+            width: 100%;
+            max-width: 1170px;
+            height: 100%;
+            margin: 0 auto;
+            .gap {
+                height: 100%;
+                padding: 0 15px;
+                .content {
+                    width: 100%;
+                    height: 100%;
+                    .content-box {
+                        display: flex;
+                        align-items: center;
+                        height: 100%;
+                        .left-nav {
+                            justify-content: flex-start;
+                            padding: 0 15px;
+                            img {
+                                height: 30px;
+                                width: auto;
+                            }
+                        }
+                        .right-nav {
+                            width: 100%;
+                            height: 52px;
+                            .right-nav-menu {
+                                padding: 0 0 0 15px;
+                                display: flex;
+                                justify-content: flex-end;
+                                height: 100%;
+                                li {
+                                    margin: 15px 20px;
+                                    font-size: 12px;
+                                    font-weight: 600;
+                                    color: rgb(255, 255, 255);
+                                    line-height: 22px;
+                                    a {
+                                        &:visited {color: #fff;}
+                                    }
+                                }
+                            }
+                        }
+                        #mobileNav {
+                            display: none;
+                            width: 24px;
+                            height: 15px;
+                            margin: auto 0 auto auto;
+                            span {
+                                display: block;
+                                width: 100%;
+                                height: 100%;
+                                position: relative;
+                                i {
+                                    position: absolute;
+                                    left: 0;
+                                    width: 100%;
+                                    height: 2px;
+                                    background: rgb(255, 255, 255);
+                                    &.line1 {
+                                        top:0;
+                                        transition: all 0.3s;
+                                        &.on {
+                                            top:50%;
+                                            margin: -1px 0 0 0;
+                                            transform: rotate(135deg);
+                                        }
+                                    }                            
+                                    &.line2 {
+                                        top: 50%;
+                                        margin: -1px 0 0 0;
+                                        &.on {
+                                            display: none;
+                                        }
+                                    }                            
+                                    &.line3 {
+                                        bottom:0;
+                                        transition: all 0.3s;
+                                        &.on {
+                                            bottom:50%;
+                                            margin: 0 0 -1px 0;
+                                            transform: rotate(-135deg);
+                                        }
+                                    }                            
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+            }
+            
+            
+        }
+    }
+
+    .mobile-nav-menu {
+        display: none;
+        position: fixed;
+        z-index: 3;
+        width: 100%;
+        ul {
+            li {
+                margin: 20px 20px;
+                a{
+                    font-size: 12px;
+                    font-weight: 600;
+                    color: rgb(255, 255, 255);
+                }
+            }
+        }
+        &.on {
+            display: block;
+        }
+
+        &.pal-on{
+            background: rgb(0, 0, 0);
+            margin-top: -15px;
+        }
+
+    }
+
+    /* @keyframes header-paral-on {
+        0% {transform: translateY(0);}
+        100% {transform: translateY(-16px);}
+    }
+    @keyframes header-paral-off {
+        0% {transform: translateY(-16px);}
+        100% {transform: translateY(0);}
+    } */
+
+
+
+    #main {
+        //공통요소
+        .container {//섹션1 섹션2는 별도의 설정함
+            width: 100%;
+            max-width: 1170px;
+            margin: 0 auto;
+            .gap {//섹션 내에 존재하는 모든 gap 블록에 일괄
+                padding: 0 15px;
+                .title {//섹션 내에 존재하는 모든 title블록에 일괄 적용
+                    text-align: center;
+                    margin: 0 0 100px 0;
+                    h1 {
+                        font-size: 35px;
+                        font-weight: 500;
+                        color: rgb(255, 26, 86);
+                        text-decoration: line-through;
+                    }
+                    h2 {
+                        font-size: 20px;
+                        font-weight: 700;
+                        color: rgb(55, 55, 55);
+                        line-height: 1.5;
+                    }
+                }
+            }
+        }
+
+
+
+        //
+         #section1 {
+            width: 100%;
+            .container {
+                position: relative;
+                width: 100%;
+                max-width: none;//일괄 적용되어 있던 1170px을 디폴트 상태로 만듦
+                .slide-container {
+                    width: 100%;
+                    .slide-view {
+                        overflow: hidden;//wrap에서 표현되던 이미지 3장이 숨겨짐
+                        width: 100%;
+                        .slide-wrap {
+                            display: flex;
+                            position: relative;
+                            width: 100% * 9;//이미지가 총 5장
+                            margin: 0 0 0 -100%;
+                            .slide {
+                                position: relative;//추가해줘야 left top위치 조절 가능
+                                width: 100%;
+                                height: 100vh;
+                                background: url() no-repeat 50% 50%;
+                                background-size: cover;
+                                .content {
+                                    position: relative;
+                                    width: 100%;
+                                    max-width: 1170px;
+                                    height: 100%;
+                                    margin: 0 auto;
+                                    padding: 0 15px; 
+                                    
+                                    
+                                    .text-box {
+                                        position: absolute;
+                                        z-index: 2;
+                                        left: 11.54%;//패딩 15px 보정
+                                        top: 30%;
+                                        h2 {
+                                            margin: 0 0 20px 0;
+                                            font-size: 16px;
+                                            font-weight: 500;
+                                            color: rgb(171, 171, 171);
+                                            text-transform: uppercase;
+                                        }
+                                        h3 {
+                                            line-height: 1.3;
+                                            font-size: 80px;
+                                            font-weight: 700;
+                                            color: rgb(255, 255, 255);
+                                        }
+
+
+                                        &::before {
+                                            content: '';
+                                            position: absolute;
+                                            left: -6.3058vw;//120px
+                                            top: 80px;
+                                            width: 40px;
+                                            height: 6px;
+                                            background: rgb(227, 29, 59);
+
+                                        } 
+                                    }
+                                }
+
+                                &::before {
+                                    content: '';
+                                    position: absolute;
+                                    z-index: 1;
+                                    width: 100%;
+                                    height: 100%;
+                                    background: rgba(30, 30, 30, 0.5);
+                                }
+                                &.slide1 {background-image: url(../img/slider-img7.jpg);}
+                                &.slide2 {background-image: url(../img/slider-img8.jpg);}
+                                &.slide3 {background-image: url(../img/slider-img9.jpg);}
+                            }
+                        }
+                    }
+                }
+                .page-btn-box {
+                    position: absolute;
+                    z-index: 2;
+                    bottom: 50px;
+                    left: 0;
+                    width: 100%;
+                    text-align: center;//a태그들 가운데 정렬 용도
+                    
+                    span {
+                        margin: 0 15px;
+                        a {
+                            width: 40px;
+                            height: 5px;
+                            background: rgba(200, 200, 200, 0.5);
+                            transition: all 0.3s;
+                            &.on {
+                                background: rgba(200, 200, 200, 1);
+                            }
+                        }
+                    }
+                }
+            }
+         }
+         //what do you need
+         #section2 {
+            
+            .container {
+                max-width: none;//일괄 적용되어 있던 1170px을 디폴트 상태로 만듦
+                width: 100%;
+                .title-box {
+                    margin: 0 auto;
+                    padding: 60px 15px;
+                    width: 100%;
+                    text-align: center;
+                    h2 {
+                        margin: 0 0 20px 0;
+                        font-size: 13px;
+                        font-weight: 500;
+                        letter-spacing: 0.3px;
+                        color: rgb(98, 98, 98);
+                    }
+                    h3 {
+                        font-size: 28px;
+                        font-weight: 600;
+                        color: rgb(55, 55, 55);
+                    }
+                }
+
+                .img-box {//ul태그
+                    display: flex;
+                    li {
+                        position: relative;
+                        overflow: hidden;
+                        z-index: 1;
+                        figure {//블록화 시키기 위해서 div태그보단 figure태그 선택
+                            position: relative;
+                            transition: all 0.3s;
+                            &::before {
+                                content:'';
+                                position: absolute;
+                                z-index: 1;
+                                width: 100%;
+                                height: 100%;
+                                background: rgba(30, 30, 30, 0.4);
+                                transition: all 0.3s;
+                            }
+                            img {
+                                width: 100%;
+                                height: auto;
+                            }
+                        }
+
+                        .link-box {
+                            display: flex;
+                            align-items: flex-end;
+                            position: absolute;
+                            z-index: 2;
+                            bottom: 0;
+                            right: -80px;
+                            transition: all 0.3s;
+                            h2 {
+                                padding: 45px 75px;
+                                width: 100%;
+                                max-width: 265px;
+                                height: 100%;
+                                max-height: 150px;
+                                background: rgb(255, 255, 255);
+                                font-size: 24px;
+                                font-weight: 600;
+                                color: rgb(98, 98, 98);
+                                &::before {
+                                    content: '';
+                                    position: absolute;
+                                    top: 60px;
+                                    left: 40px;
+                                    width: 20px;
+                                    height: 5px;
+                                    background: red;
+                                }
+                            }
+                            h3 {//이 상자의 사이즈는 유동적으로 변하지 않음
+                                padding: 20px;
+                                width: 80px;
+                                height: 80px;
+                                background: rgb(255, 26, 86);
+                                font-size: 13px;
+                                font-weight: 500;
+                                line-height: 1.4    ;
+                                
+                                a {
+                                    color: rgb(220, 220, 220);
+                                }
+                            }
+                        }
+
+                        &:hover {
+                            figure {
+                                transform: scale(1.2);
+                                &::before {
+                                    background: rgba(30, 30, 30, 0.6);
+                                }
+                            }
+                            .link-box {
+                                right: 0;
+                            }
+
+                        }
+                    }
+                }
+            }
+         }
+         //1. ABOUT SPA SALON
+         #section3 {
+            padding: 150px 0;
+            background: url(../img/spa-img5.jpg) no-repeat 50% 50%;
+            background-size: cover;
+            .content {
+                .text-box {
+                    width: 42%;
+                    margin: 0 0 0 auto;
+                    > * {
+                        margin-bottom: 30px;//모든 하위요소에 대해 아래방향으로 마진
+                    }
+                    h3 {
+                        font-size: 18px;
+                        font-weight: 500;
+                        color: rgb(55, 55, 55);
+                        line-height: 1.8;
+                    }
+                    p {
+                        font-family: 'Roboto';
+                        font-size: 14px;
+                        font-weight: normal;
+                        color: rgb(55, 55, 55);
+                        line-height: 1.8;
+                    }
+                    a { 
+                        display: inline-block;
+                        padding: 5px 14px;
+                        width: 140px;
+                        height: 40px;
+                        border: 4px solid rgb(0, 0, 0);
+                        font-size: 11px;
+                        font-weight: 600;
+                        color: rgb(0, 0, 0);
+                        line-height: 2;
+                        transition: all 0.3s;
+                        &:hover {
+                            background: rgb(0, 0, 0);
+                            color: rgb(255, 255, 255);
+                        }
+                    }
+                }
+            }
+
+
+         }
+         //2. TREATMENTS
+         #section4 {
+            padding: 150px 0;
+            .content {
+                .case-box {//ul 태그
+                    .case {//li 태그
+                        .img-box {
+                            ul {
+                                width: 100%;
+                                display: flex;
+                                li {
+                                    position: relative;
+                                    width: calc(100%/3);
+                                    padding: 0 15px;
+                                    >img {
+                                        width: 100%;
+                                        
+                                    }//가운데 이미지는 제외
+                                    .center-box-with-text {
+                                        figure {
+                                            margin: 0 0 20px 0;
+                                            text-align: center;
+                                            img {
+                                                width: 70%;
+                                                border-radius: 50%;
+                                            }
+                                        }
+                                        .text-box {
+                                            text-align: center;
+                                            h3 {
+                                                display: inline-block;
+                                                position: relative;
+                                                font-size: 15px;
+                                                font-weight: 600;
+                                                color: rgb(55, 55, 55);
+                                                &::before {
+                                                    content: '';
+                                                    z-index: 1;
+                                                    position: absolute;
+                                                    top: 7.5px;
+                                                    transform: translateX(-100%);
+                                                    width: 10px;
+                                                    height: 3px;
+                                                    background: rgb(227, 29, 59);
+                                                }
+                                            }
+                                            p {
+                                                padding: 20px 50px;
+                                                font-size: 13px;
+                                                font-family: 'Roboto';
+                                                line-height: 1.6;
+                                            }
+                                            }
+                                            h4 {
+                                                position: absolute;
+                                                bottom: 0;
+                                                left: 50%;
+                                                transform: translate(-50%, 50%);
+                                                font-size: 100px;
+                                                font-weight: 700;
+                                                color: rgb(255, 26, 86);
+                                            }
+                                    }
+                                    
+                                }
+                            }
+                        }
+                    }
+                }
+                .menu-box {
+                    ul {
+                        display: flex;
+                        justify-content: center;
+                        margin: 100px 0 0 0;
+                        li {
+                            margin: 0 20px;
+                            .menu-btn {
+                                font-size: 13px;
+                                font-weight: 600;
+                                color: rgb(155, 155, 155);
+                                &:hover {
+                                    text-decoration: line-through;
+                                }
+                                &.on {
+                                    color: rgb(85, 85, 85);
+                                    text-decoration: line-through;
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+            }
+         }
+         //WHY CHOOSE OUR SPA SALON
+         #section5 {
+            position: relative;
+            width: 100%;
+            background: url(../img/spa-img21.jpg) no-repeat 50% 50% fixed;//그림 자체가 고정되려면 여기서 fixed
+            background-size: cover;
+            
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+                width: 100%;
+                height: 100%;
+                background: rgba(30, 30, 30, 0.5);
+            }
+            .content{
+                display: flex;
+                position: relative;
+                z-index: 2;
+                padding: 150px 0;
+                .red-line {
+                    margin: 20px 50px 0 0;
+                    hr {
+                        width: 30px;
+                        height: 6px;
+                        border: none;
+                        background: red;
+                    }
+                }
+                .box {
+                    .title-box {
+                        margin: 0 0 70px 0;
+                        h2 {
+                            font-size: 35px;
+                            font-weight: 800;
+                            color: rgb(255, 255, 255);
+                            line-height: 1.2;
+                        }
+                    }
+                    .content-box {
+                        ul {
+                            display: flex;
+                            flex-flow: row wrap;
+                            li {
+                                display: flex;
+                                width: 42%;
+                                margin: 0 0 40px 0;
+
+                                .img-box {
+                                    margin: 5px 20px 0 0;
+                                    img {
+                                        width: 60px;
+                                    }
+                                }
+                               .text-box {
+                                    h3 {
+                                        margin: 0 0 20px 0;
+                                        font-size: 14px;
+                                        font-weight: 600;
+                                        color: rgb(255, 255, 255);
+                                        line-height: 1.2;
+                                    }
+                                    p {
+                                        font-size: 13px;
+                                        font-weight: normal;
+                                        font-family: 'Roboto';
+                                        color: rgb(171, 171, 171);
+                                        line-height: 1.4;
+                                    }
+                               }
+                            }
+                        }
+                        
+                    }
+                }
+        }
+            background-color: rgb(31, 80, 145);
+         }
+         
+         #section6 {//타이머
+            padding: 150px 0;
+            .title.hide {
+                display:none;//이거 없으니까 유령상태로 남아서 이상하게 배치가 됨
+            }
+            .content {
+                width: 100%;
+                ul {
+                    display: flex;
+                    justify-content: center;
+                    
+                    li {
+                        width: 25%;
+                        padding: 0 15px;
+                        border-right: 2px solid rgba(0, 0, 0, 0.1);
+                        text-align: center;
+                        h3 {
+                            font-size: 35px;
+                            font-weight: 600;
+                            line-height: 1.6;
+                        }
+                        h4 {
+                            margin: 10px 0 0 0;
+                            font-size: 11px;
+                            font-weight: 500;
+                            color: rgb(98, 98, 98);
+                            line-height: 1.6;
+                        }
+                    }
+                }
+            }
+         }
+
+         //3. PACKAGES
+         #section7 {
+            padding: 150px 0;
+            background: url(../img/spa-section-bg.jpg) no-repeat 50% 50%;
+            background-size: cover;
+            .content {
+                width: 100%;
+                ul {
+                    display: flex;
+                    flex-flow: row wrap;
+                    width: 100%;
+                    li {//li 전체 속성에 적용
+                        position: relative;
+                        overflow: hidden;
+                        width: 50%;//ul의 50% 570px
+                        .img-box {
+                            img {
+                                width: 100%;
+                            }
+                        }
+
+
+                        //공통 속성
+                        .text-box {
+                            display: flex;
+                            position: absolute;
+                            top: 0;
+                            width: 100%;//570px
+                            height: 100%;
+                            transition: all 0.3s;//마우스 올렸을 때 천천히 이동
+                            .information-box {
+                                width: 50%;//이미지의 절반을 덮는 285px
+                                height: 100%;
+                                margin: auto 0;//수직 중앙 정렬
+                                padding: 80px 60px;
+                                background-color: #fff;
+                                h3 {
+                                    margin: 0 0 30px 0;
+                                    font-size: 15px;
+                                    font-weight: 600;
+                                    color: rgb(98, 98, 98);
+                                    line-height: 1.4;
+                                }   
+                                p {
+                                    margin: 0 0 30px 0;
+                                    font-size: 11px;
+                                    font-weight: 500;
+                                    color: rgb(98, 98, 98);
+                                    line-height: 1.6;
+                                }
+                                hr {
+                                    width: 30px;
+                                    height: 4px;
+                                    background: rgb(255, 26, 86);
+                                    border: none;
+
+                                }
+                            }
+                            .price-box {
+                                width: 40px;
+                                padding: 0 9px;
+                                background: rgb(255, 26, 86);
+                                writing-mode: vertical-rl;
+                                text-align: center;
+                                h3 {
+                                    width: 100%;
+                                    font-size: 11px;
+                                    font-weight: 500;
+                                    color: rgb(255, 255, 255);
+                                    line-height: 2;
+                                }
+                                
+                            }
+                        }
+
+                        &.case1 {//왼쪽으로 튀어나옴. 가격표는 오른쪽에
+                            .text-box {
+                                justify-content: flex-end;
+                                right: -40px;//오른쪽으로 가격표 너비 만큼 이동해서 숨기기
+                                
+                                .price-box {
+                                    transform: rotate(180deg);
+                                    
+                                }
+                            }
+                        }
+                        &.case2 {//오른쪽으로 튀어나옴. 가격표는 왼쪽에
+                            .text-box {
+                                justify-content: flex-start;
+                                left: -40px;//왼쪽으로 가격표 너비 만큼 이동해서 숨기기
+                                
+                              
+                            }
+                        }
+
+                        &:hover {
+                            &.case1 {//마우스 올리면 오른쪽에서 왼쪽으로 이동함
+                                .text-box {
+                                    transform: translateX(-50%);//텍스트 박스의 너비가 li와 같은데 그것의 절반 만큼 이동
+                                }
+                            }
+                            &.case2 {//마우스 올리면 왼쪽에서 오른쪽으로 이동함
+                                .text-box {
+                                    transform: translateX(50%);
+                                }
+                            }
+                        }
+                        
+                    }
+
+
+                    
+                }
+            }
+            background-color: rgb(255, 238, 0);
+         }
+         //4. GALLERY
+         #section8 {
+            padding: 150px 0;
+            .content {
+                width: 100%;
+                .gallery-box {
+                    margin: -2.1019vw 0 0 -2.1019vw;//상부 좌측에 준 패딩을 마진에 음수값 줘서 위, 왼쪽으로 끌어당김
+                    ul {//그리드 컨테이너
+                        display: grid;
+                        grid-template-columns: repeat(3, calc(100%/3));
+                        //grid-gap: 2.1019vw; content 상자 뚫고 감
+                        li {//그리드 아이템
+                            &:nth-child(1){
+                                grid-row: 1 / span 1;//이렇게 스타트를 끊으니 적절하게 완성됨
+                            }
+                            &:nth-child(2){
+                                grid-row-start: 1;
+                                grid-row-end: 3;
+                            }
+                            &:nth-child(4), &:nth-child(6){
+                                grid-row: 2 / span 2;
+                            }
+                            //트랜지션 효과 일괄 적용
+                            transition: all 0.5s;
+                            .col-gap {
+                                position: relative;
+                                overflow: hidden;
+                                transition: inherit;
+                                margin: 2.1019vw 0 0 2.1019vw;//패딩을 상부 좌측에다가만 줌. 옛날 방식
+                                .img-box {
+                                    position: relative;
+                                    transition: inherit;
+                                    a {
+                                        //a태그에는 포지션 relative 할 필요 없음. 인라인이니까
+                                        transition: inherit;
+                                        &::before {
+                                            content: '';
+                                            position: absolute;//img-box기준으로 움직임
+                                            z-index: 1;
+                                            top: 0;
+                                            left: 0;
+                                            width: 100%;
+                                            height: 100%;
+                                            background: rgba(0, 0, 0, 0);
+                                            transition: inherit;
+                                        }
+                                        img {
+                                            width: 100%;
+                                        }
+                                    }
+                                }
+                                //숨겼다가 마우스 갖다 대면 떠오르게 하기
+                                .text-box {
+                                    user-select: none;
+                                    position: absolute;
+                                    z-index: 4;
+                                    left: 50%;
+                                    bottom: 0;
+                                    transform: translate(-50%,100%);
+                                    text-align: center;
+                                    transition: inherit;
+                                    
+                                    h3 {
+                                        font-size: 18px;
+                                        font-weight: 500;
+                                        color: rgb(255, 255, 255);
+                                        line-height: 1.6;
+
+                                    }
+                                    hr {
+                                        display: inline-block;
+                                        width: 100%;
+                                        height: 6px;
+                                        border: none;
+                                        background: rgb(255, 26 , 86);
+
+                                    }
+                                }
+                            }
+                            
+                            ///이미지에 마우스 올리면 호버 효과 발생
+                            &:hover {
+                                .img-box {
+                                    transform: scale(1.2);
+                                    a {
+                                        transform: scale(1.2);
+                                        
+                                        &::before {
+                                        background: rgba(68, 68, 68, 0.5);
+                                        }
+                                    }
+                                                                  
+                                }
+                                .text-box {
+                                transform: translate(-50%,-50%);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+         }
+         //5. THERAPISTS
+         #section9 {
+            padding: 150px 0;
+            background: url(../img/spa-section-bg.jpg) no-repeat 50% 50%;
+            background-size: cover;
+
+            .content {
+                width: 100%;
+                .therapists-list {
+                    display: flex;
+
+                    >li {
+                        width: 33.33333%;
+                        
+                        padding: 0 15px;
+                        
+                        .img-box {
+                            width: 100%;
+                            margin: 0 0 30px 0;
+                            img {
+                                width: 100%;
+                                outline: 5px solid rgb(139, 139, 139);
+                                outline-offset: -20px;
+                                transition: all 0.3s;
+                                &:hover {
+                                    filter: grayscale(1.0);
+                                }
+                            }
+                        }
+                        .bottom-box {
+                            .icon-box {
+                                ul {
+                                    display: flex;
+                                    justify-content: center;
+                                    li {//아이콘 리스트
+                                        margin: 0 20px;
+                                        a {
+                                            i {
+                                                font-size: 24px;
+                                                color: rgb(0, 0, 0);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .text-box {
+                                margin: 30px 0 0 0;
+                                text-align: center;
+                                h3 {
+                                    font-size: 13px;
+                                    font-weight: 600;
+                                    color: rgb(0, 0, 0);
+                                    line-height: 1.6;
+                                }
+                                h4 {
+                                    font-size: 11px;
+                                    font-weight: 500;
+                                    color: rgb(98, 98, 98);
+                                    line-height: 1.6;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+         }
+         //6. LATEST BLOG
+         #section10 {
+            padding: 150px 0;
+            .content {
+                ul {
+                    display: flex;
+
+                    li {
+                        padding: 0 15px;
+                        .img-box {
+                            transition: all 0.3s;
+                            &:hover {
+                                filter: grayscale(1);
+                            }
+                            a {
+                                img {
+                                    width: 100%;
+                                }
+                            }
+                        }
+                        .text-box {
+                            margin: 40px 0 0 0;
+                            
+                            .link-btn {
+                                width: 80px;
+                                height: 20px;
+                                padding: 4px;
+                                background: rgb(0, 0, 0);
+                                font-size: 10px;
+                                font-weight: 500;
+                                color: rgb(255, 255, 255);
+                                line-height: 1.1;
+                                text-align: center;
+                                a {
+                                    color: rgb(255, 255, 255);//reset에서 설정해둔 값이 있어서 별도로 설정
+                                }
+                            }
+                            h3 {
+                                margin: 20px 0 0 0;
+                                font-size: 15px;
+                                font-weight: 600;
+                                line-height: 1.4;
+                                a {
+                                    color: rgb(98, 98, 98);
+                                }
+                            }
+                            p {
+                                margin: 20px 0 0 0;
+                                font-size: 13px;
+                                font-family: 'Roboto';
+                                color: rgb(98, 98, 98);
+                                line-height: 1.6;
+                            }
+                            hr {
+                                height: 1px;
+                                margin: 20px 0;
+                                border: none;
+                                background: rgb(190, 190, 190);
+                            }
+                            .post-box {
+                                font-size: 11px;
+                                font-weight: 500;
+                                color: rgb(171, 171, 171);
+                                line-height: 1.4;
+                                letter-spacing: 1px;
+                                a {
+                                    color: rgb(171, 171, 171);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+         }
+         //7. CONTACT
+        #section11 {
+            
+            padding: 150px 0;
+            
+            
+            background: url(../img/spa-section-bg.jpg) no-repeat 50% 50%;
+            background-size: cover;
+
+            .content {
+                
+                display: flex;
+                width: 100%;
+                .left-box {
+                    width: 40%;
+                    ul {
+                        li {
+                            display: flex;
+                            margin: 0 0 40px 0;
+                            .icon-box {
+                                width: 40px;
+                                margin: 0 60px 0 0;
+                                font-size: 40px;
+                                color: rgb(154, 154, 154);
+                            }
+                            .text-box {
+                                h3 {
+                                    font-size: 15px;
+                                    font-weight: 700;
+                                    color: rgb(0, 0, 0);
+                                    line-height: 1.6;
+                                }
+                                p {
+                                    font-size: 14px;
+                                    font-family: 'Roboto';
+                                    color: rgb(98, 98, 98);
+                                    line-height: 1.6;
+                                }
+                            }
+                        }
+                    }
+                }
+                .right-box {
+                    width: 60%;
+                    ul {
+                        li {
+                            width: 100%;
+                            margin: 0 0 20px 0;
+                            input {
+                                width:100%;
+                                height: 48px;
+                                background: #fff;
+                                color: #626262;
+                                font-size: 14px;
+                                border: 1px solid #ccc;
+                                border-radius: 3px;
+                                padding: 0 15px;
+                                outline: 2px solid transparent;
+                                transition: all 0.3s;
+                                outline-offset: -1px;
+                                &:focus{
+                                    outline: 2px solid #999;
+                                }
+                            }
+                            select {
+                                width:100%;
+                                height: 48px;
+                                color: #626262;
+                                font-size: 14px;
+                                border: 1px solid #ccc;
+                                border-radius: 3px;
+                                appearance: none;
+                                background:#fff url(../img/select-arrow.png) no-repeat 98% 50%;
+                                background-size: auto auto;
+                                padding: 0 15px;
+                                &:focus {
+                                    outline: 0;
+                                }
+                            }
+                            textarea {
+                                width:100%;
+                                height: 90px;
+                                padding: 15px;
+                                border: 1px solid #ccc;
+                                border-radius: 3px;
+                                outline: 2px solid transparent;
+                                outline-offset: -1px;
+                                background:#fff;
+                                color: #626262;
+                                font-size: 14px;
+                                font-family: 'Roboto';
+                                resize: none;//창 사이즈 변경 불가
+                                transition: all 0.3s;
+                                &:focus{
+                                    outline: 2px solid #999;
+                                }  
+                            }
+                            button {
+                                padding: 0 20px;
+                                font-weight: 600;
+                                border: 2px solid #000;
+                                background: #000;
+                                color: #fff;
+                                transition: all 0.3s;
+                                height: 48px;
+                                width: auto;
+                                &:hover {
+                                    background: #fff;
+                                    color: #000;
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+         }
+         
+
+
+
+
+
+
+    }
+    #footer {
+        .container {
+            width: 100%;
+            max-width: 1170px;
+            margin: 0 auto;
+            .gap {
+                width: 100%;
+                padding: 0 15px;
+                .content {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 100%;
+                    height: 150px;
+                    padding: 60px 0;
+                    .left-icon-box {
+                        height: 100%;
+                        
+                        ul {
+                            height: 100%;
+                            display: flex;
+                            justify-content: flex-start;
+                            li {
+                                margin: 0 25px;
+                                a {
+                                    i {
+                                        font-size: 24px;
+                                        color: rgb(87, 87, 87);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .right-logo-box {
+                        height: 100%;
+                        figure {
+                            height: 100%;
+                            img {
+                                height: 100%;
+                            }
+                        }
+
+                    }
+                    hr {
+                        border: none;
+                    }
+                }
+                .copyright-box {
+                    width: 100%;
+                    padding: 30px 0;
+                    border-top: 1px solid rgb(190, 190, 190);
+                    text-align: center;
+                    h3 {
+                        font-size: 11px;
+                        font-weight: 500;
+                        color: rgb(98, 98, 98);
+                    }
+                }
+                
+            }
+        }
+        
+    }
+
+
+
+
+
+
+
+
+
+}
+

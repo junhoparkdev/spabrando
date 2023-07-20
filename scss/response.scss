@@ -1,0 +1,341 @@
+@media all and (max-width:1170px) {
+    #wrap #main #section2, 
+    #wrap #main #section4, 
+    #wrap #main #section5, 
+    #wrap #main #section6, 
+    #wrap #main #section7, 
+    #wrap #main #section8, 
+    #wrap #main #section9, 
+    #wrap #main #section10 {
+        padding: 80px 0;       
+    }
+
+
+
+
+}
+
+
+@media all and (max-width:990px) {
+#wrap {
+    #header {
+        .container {
+            .gap {
+                .content {
+                    .content-box {
+                        .right-nav {
+                            display: none;
+                            
+
+                        }
+                        #mobileNav {
+                            display: block;
+                            margin-right: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+#wrap #main #section1 .container 
+.slide-container .slide-view .slide-wrap .slide .content .text-box {
+    &::before {
+        top:-20px;
+        left:0;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    h3 {
+        font-size: 60px;
+    }
+    
+
+}
+
+    #wrap #main #section2 .container .img-box li .link-box h2 {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+    #wrap #main #section2 .container .img-box li .link-box h2::before {
+        display: none;
+    }
+
+
+    #wrap #main #section4 .gap {
+        padding: 0 40px;
+    }
+
+    #wrap #main #section4 .content .case-box .case .img-box ul {//그리드 컨테이너 역할
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        grid-template-areas: 
+              'a c'
+              'b b';
+
+    }
+
+    #wrap #main #section4 .content .case-box .case .img-box ul li {
+        position: relative;
+        width: auto;
+        padding: 15px;
+        .center-box-with-text {
+            padding: 40px;
+            background: rgb(246, 246, 246);
+            figure {
+                img {
+                    width: 40%;
+                }
+            }
+        }
+            &:nth-child(1) {
+                grid-area: a;
+            }
+            &:nth-child(3) {
+                grid-area: c;
+            }
+            &:nth-child(2) {
+                grid-area: b;
+                
+            }
+    }
+    #wrap #main #section4 .content .menu-box ul {
+        text-align: center;
+        display: block;
+    }
+    #wrap #main #section4 .content .menu-box ul li{
+        margin: 0 0 30px 0;
+    }
+
+
+
+    #wrap #main #section5 .content {
+        display: block;
+        margin: 0 100px;
+    }
+    #wrap #main #section5 .content .red-line {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 0 40px 0;
+        hr {
+            width: 100%;
+        }
+    }
+
+    
+    
+
+    #wrap #main #section7 .content ul {
+        display: grid;
+        grid-template-columns: repeat(1, 100%);
+        grid-template-areas: 
+            'a'
+            'c'
+            'b'
+            'd';
+    }
+    #wrap #main #section7 .content ul li{
+        width: 100%;
+        &:nth-child(1) {
+            grid-area: a;
+        }
+        &:nth-child(2) {
+            grid-area: b;
+        }
+        &:nth-child(3) {
+            grid-area: c;
+        }
+        &:nth-child(4) {
+            grid-area: d;
+        }
+    }
+    
+
+
+    #wrap #main #section8 .content .gallery-box ul {
+        grid-template-columns: repeat(2, calc(100%/2));
+        
+    }
+    #wrap #main #section8 .content .gallery-box ul li {
+        &:nth-child(1){
+            grid-row: 1 / span 1;//이렇게 스타트를 끊으니 적절하게 완성됨
+        }
+        &:nth-child(2){
+            grid-row: 1 / span 2;
+        } 
+        &:nth-child(3){
+            grid-row: 2 / span 2;
+            
+        } 
+        &:nth-child(4){
+            grid-column: 2 / span 1;
+            grid-row: 3 / span 3;
+        } 
+        &:nth-child(6){
+            grid-column: 1 / span 1;
+            grid-row: 4 / span 3;
+        } 
+        &:nth-child(5){
+            grid-column: 2 / span 1;
+            grid-row: 6 / span 2;
+        } 
+        
+        &:nth-child(7){
+            grid-row: 7 / span 2;
+        } 
+        &:nth-child(8){
+            grid-column: 2 / span 1;
+            grid-row: 8 / span 2;
+        } 
+        &:nth-child(9){
+            grid-column: 1 / span 1;
+            grid-row: 9 / span 2;
+        } 
+    } 
+    
+}
+
+
+@media all and (max-width: 768px){
+    #wrap #main #section2 .container .img-box {
+        display: block;
+    }
+    #wrap #main #section2 .container .img-box li .link-box h2 {
+        padding: 20px 30px;
+        font-size: 13px;
+    }
+    #wrap #main #section2 .container .img-box li .link-box h2::before {
+        display: block;
+        top: 50px;
+        left: 8px;
+    }
+    
+    #wrap #main #section3 .content .text-box {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+
+
+    #wrap #main #section4 .content .case-box .case .img-box ul {//그리드 컨테이너 역할
+        display: grid;
+        grid-template-columns: repeat(1, 100%);
+        grid-template-areas: 
+        'a'
+        'c'
+        'b'
+
+    }
+    #wrap #main #section4 .content .case-box .case .img-box ul li {
+        position: relative;
+        width: auto;
+        .center-box-with-text {
+            figure {
+                img {
+                    width: 40%;
+                }
+            }
+        }
+        &:nth-child(1) {
+            grid-area: a;
+        }
+        &:nth-child(3) {
+            grid-area: c;
+        }
+        &:nth-child(2) {
+            grid-area: b;
+            
+        }
+    }
+
+
+    #wrap #main #section5 .content {
+        margin: 0;
+    }
+    #wrap #main #section5 .content .box .content-box ul {
+        display: block;
+        li {
+            width: 100%;
+        }
+    }
+    #wrap #main #section5 .content .box .content-box ul li .img-box img {
+        width: 150px;
+    }
+
+
+    #wrap #main #section6 .content ul {
+        display: block;
+        li {
+            margin: 0 auto 40px auto;
+            border: none;
+        }
+    }
+    #wrap #main #section8 .content .gallery-box ul {
+        display: block;
+        
+    }
+
+    
+
+    #wrap #main #section9 .container .gap .content .therapists-list {
+        display: block;
+        li {
+            width: 100%;
+            margin-bottom: 40px;
+        }
+    }
+    #wrap #main #section9 .content .therapists-list > li .bottom-box .icon-box ul {
+        margin: 0 auto;
+        display: block;
+        text-align: center;
+    }
+    #wrap #main #section9 .content .therapists-list > li .bottom-box .icon-box ul li {
+        display: inline;
+    }
+
+
+
+
+    #wrap #main #section10 .content ul {
+        display: block;
+        >li {
+            width: 100%;
+            margin: 0 0 40px 0;
+        }
+    }
+
+    #wrap #main #section11 .content {
+        display: block;
+    }
+    #wrap #main #section11 .content .left-box {
+        width: 100%;
+    }
+    #wrap #main #section11 .content .left-box ul li{
+        flex-flow: column;
+        align-items: center;
+        text-align: center;
+        .icon-box {
+            margin: 0 0 20px 0;
+        }
+    }
+    #wrap #main #section11 .content .right-box {
+        width: 100%;
+    }
+
+    #wrap #footer .container .gap .content {
+        flex-flow: column;
+        align-items: center;
+    }
+    #wrap #footer .container .gap .content .left-icon-box {
+        margin-bottom: 30px;
+    }
+    
+    #wrap #footer .container .gap .copyright-box {
+        margin-top: 30px;
+    }
+    
+}
